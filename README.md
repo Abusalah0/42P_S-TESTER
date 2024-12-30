@@ -55,7 +55,7 @@ Before running the script, ensure that the following conditions are met:
 1. **Execute the Script**:
    - Once the necessary files are in place, and permissions are set, you can run the script by executing the following:
      ```bash
-     ./your_script.sh
+     ./push_swap_tester.sh
      ```
    - The script will use the `push_swap` and `checker_linux` executables to test the algorithm.
 
