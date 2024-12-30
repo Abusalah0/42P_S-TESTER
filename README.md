@@ -19,7 +19,7 @@ Before running the script, ensure that the following conditions are met:
 2. **Permissions**:
    - The `push_swap` and `checker_linux` executables must have the appropriate execute permissions. You can grant them execute permissions by running:
      ```bash
-     chmod +x push_swap checker_linux
+     chmod +x checker_linux push_swap_tester
      ```
 
 3. **Configuration (Optional)**:
