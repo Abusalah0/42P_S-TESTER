@@ -47,7 +47,7 @@ Before running the script, ensure that the following conditions are met:
 3. **Ensure Executable Permissions**:
    - Make sure the `push_swap` and `checker_linux` executables have execute permissions:
      ```bash
-     chmod +x push_swap checker_linux
+     chmod +x push_swap_tester checker_linux
      ```
 
 ## Running the Script
@@ -90,8 +90,5 @@ Before running the script, ensure that the following conditions are met:
 
 - **Permissions Issue**:
   - If the script or executables do not have execute permissions, use the `chmod +x` command to set the correct permissions.
-
-## License
-
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
