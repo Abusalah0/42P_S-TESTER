@@ -66,6 +66,13 @@ Before running the script, ensure that the following conditions are met:
      CHECKER="/path/to/your_checker_linux"
      ```
 
+3. **Enabling Hardmode (Optional)**:
+   - If you want more strict tests then you can pass `hardmode` argument when running the script:
+      ```
+      bash push_swap_tester.sh hardmode
+      ```
+   - By enabling hardmode it will reduce the timeout from 10 seconds to 3 seconds and strict tests will be tested.
+
 ## General Workflow
 
 1. **Clone the Tester**:
