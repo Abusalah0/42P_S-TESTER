@@ -207,5 +207,5 @@ if [ "$HARDMODE" == 1 ]; then
 fi
 
 echo -e  "\n"
-echo -e "${MAGENTA}intra-name :  msalim -> DM me for any feedback , Good luck with your Projects! \U1F49C ${NC}"
+echo -e "${MAGENTA}made by msalim & amsaleh -> DM Us for any feedback , Good luck with your Projects! \U1F49C ${NC}"
 
