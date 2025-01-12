@@ -97,5 +97,4 @@ Before running the script, ensure that the following conditions are met:
 
 - **Permissions Issue**:
   - If the script or executables do not have execute permissions, use the `chmod +x` command to set the correct permissions.
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
