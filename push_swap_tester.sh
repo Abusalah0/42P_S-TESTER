@@ -111,40 +111,45 @@ print_operations() {
 }
 
 test_case() {
-  local array=$1
+  local array="$1"
+  local args=($array)
 
-  INSTRUCTIONS=$(timeout $TIMEOUT "$EXEC" "$array")
+  INSTRUCTIONS=$(timeout $TIMEOUT "$EXEC" "${args[@]}")
   if [ "$?" -eq 124 ]; then
     echo -e "${RED}TIMEOUT: KO!${NC}"
-    return;
+    return
   fi
+
   if [ -z "$INSTRUCTIONS" ]; then
-    CHECKER_OUTPUT=$($CHECKER $array < "/dev/null")
+    CHECKER_OUTPUT=$($CHECKER "${args[@]}" < "/dev/null")
   else
-    CHECKER_OUTPUT=$($CHECKER $array <<< $INSTRUCTIONS)
+    CHECKER_OUTPUT=$($CHECKER "${args[@]}" <<< "$INSTRUCTIONS")
   fi
+
   echo -e "test case : $array"
-  print_operations "$INSTRUCTIONS" $(wc -w <<< $array)
+  print_operations "$INSTRUCTIONS" ${#args[@]}
   if [ "$CHECKER_OUTPUT" == "OK" ]; then
     echo -e "${GREEN}sorted Correctly! OK!!!${NC}"
   else
     echo -e "${RED}KO!${NC}"
   fi
-
 }
 
+
 test_case_errors() {
-  local array=$1
+  local array="$1"
+  local args=($array)
+
   if [ ! -f "$EXEC" ]; then
-    echo -e "${RED}Executable not found! -> make sure to (make)${NC}";
+    echo -e "${RED}Executable not found! -> make sure to (make)${NC}"
     return
   fi
 
   echo -e "test case : $array"
-  OUTPUT=$(timeout $TIMEOUT "$EXEC" "$array" 2>&1)
+  OUTPUT=$(timeout $TIMEOUT "$EXEC" "${args[@]}" 2>&1)
   if [ "$?" -eq 124 ]; then
     echo -e "${RED}TIMEOUT: KO!${NC}"
-    return;
+    return
   fi
   if [ "$OUTPUT" == "Error" ]; then
     echo -e "${GREEN}Error as expected.${NC}"
@@ -152,6 +157,7 @@ test_case_errors() {
     echo -e "${RED}KO, Expected Error!${NC}"
   fi
 }
+
 
 check_executables() {
   if [ ! -f "$EXEC" ]; then
@@ -207,5 +213,5 @@ if [ "$HARDMODE" == 1 ]; then
 fi
 
 echo -e  "\n"
-echo -e "${MAGENTA}made by msalim & amsaleh -> DM Us for any feedback , Good luck with your Projects! \U1F49C ${NC}"
+echo -e "${MAGENTA}made by msalim & amsaleh & abusalah0 -> DM Us for any feedback , Good luck with your Projects! \U1F49C ${NC}"
 
